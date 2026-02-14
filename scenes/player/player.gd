@@ -49,5 +49,5 @@ func animation():
 		move_state_machine.travel('idle')
 
 
-func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 	can_move=true
