@@ -35,8 +35,7 @@ func get_input():
 	if Input.is_action_just_pressed("action"):		
 		tool_state_machine.travel(tool_connection[current_tool])
 		$AnimationTree.set('parameters/OneShot/request', AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-
-
+		can_move=false
 	
 func animation():
 	if direction:
@@ -48,3 +47,7 @@ func animation():
 			$AnimationTree.set("parameters/ToolStateMachine/"+ state +"/blend_position", target_vector)					
 	else:
 		move_state_machine.travel('idle')
+
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	can_move=true
